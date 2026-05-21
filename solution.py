@@ -2,14 +2,13 @@ from string import ascii_letters as alpha
 
 
 def caesar_cipher(data: str, key: int) -> str:
-    """
-    Реализуйте шифр Цезаря.
+    cipher_data = ""
+    len_alpha = len(alpha)
 
-    Функция должна принимать строку data и целое число key.
-    Каждая буква должна заменяться на букву со сдвигом key
-    по строке ascii_letters.
+    for ch in data:
+        if ch in alpha:
+            cipher_data += alpha[(alpha.index(ch) + key) % len_alpha]
+        else:
+            cipher_data += ch
 
-    Все символы, которые не являются буквами, должны остаться без изменений.
-    """
-    # TODO: напишите решение здесь
-    pass
+    return cipher_data
